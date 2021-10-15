@@ -8,9 +8,9 @@ Esta aplicacion sirve para darle un pais/ciudad y te da el tiempo qie hace en es
 
 ## Lenguajes que utiliza
 
--Java Scrip
---Jquery
--css
---boobtrap
--scss
--html
+- Java Scrip
+-- Jquery
+- css
+-- boobtrap
+- scss
+- html
