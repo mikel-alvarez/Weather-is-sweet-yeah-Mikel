@@ -37,14 +37,14 @@
               id="menu"
             >
               <li class="nav-item">
-                <a href="#" class="nav-link align-middle px-0" id="home">
+                <a href="#" class="nav-link align-middle px-0" id="btnhome">
                   <i class="fs-4 bi-house"></i>
                   <span class="ms-1 d-none d-sm-inline">Home</span>
                 </a>
               </li>
 
               <li>
-                <a href="#" class="nav-link px-0 align-middle" id="seach">
+                <a href="#" class="nav-link px-0 align-middle" id="btnseach">
                   <i class="fs-4 bi-search"></i>
                   <span class="ms-1 d-none d-sm-inline">Search</span>
                 </a>
@@ -53,13 +53,32 @@
           </div>
         </div>
         <!--Fin Nav-->
-        <div id="home" class="col-11 text-center mt-1">
+        <div id="home" class="col-10 text-center mt-1">
           <h1>La Aplicacion del Tiempo</h1>
           <h3>Conoce El tiempo al momento</h3>
         </div>
+        <br />
+        <div id="seach" class="col-10 text-center mt-1">
+          <h1>Seach By City</h1>
+          <input
+            type="text"
+            id="city"
+            class="form-control"
+            placeholder="Default Input"
+          />
+          <button type="button" id="dia1" class="btn btn-primary">
+            Buscar Dia
+          </button>
+          <button type="button" id="dia5" class="btn btn-primary">
+            Buscar Varios Dias
+          </button>
+          <div id="result"></div>
+        </div>
       </div>
     </div>
-    <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/menu.js"></script>
   </body>
 </html>
