@@ -14,3 +14,6 @@ Esta aplicacion sirve para darle un pais/ciudad y te da el tiempo qie hace en es
   - boobtrap
 - scss
 - html
+## Trelo
+
+[Link para ir a trelo](https://trello.com/b/8YocsZKH)
