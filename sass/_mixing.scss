@@ -1,0 +1,6 @@
+@mixin marginLados($y, $x) {
+  margin-top: $x;
+  margin-left: $y;
+  margin-bottom: $x;
+  margin-right: $y;
+}
