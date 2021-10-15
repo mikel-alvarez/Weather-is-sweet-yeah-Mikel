@@ -1,5 +1,12 @@
 @import "variable";
 
+@import "mixing";
+
 body {
   background-color: $blue;
+  color: $white;
 }
+
+@import "elemensts";
+
+@import "home";
