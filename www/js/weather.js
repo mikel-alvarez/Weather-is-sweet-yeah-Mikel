@@ -1,6 +1,6 @@
 function getWheatherdia1() {
   var url =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     $("#city").val() +
     "&appid=cb5bc5de9d0c7381673d98645fd1a28f";
   $.ajax({
@@ -22,7 +22,7 @@ function getWheatherdia1() {
 }
 function getWheatherdia5() {
   var url =
-    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
     $("#city").val() +
     "&appid=cb5bc5de9d0c7381673d98645fd1a28f";
   $.ajax({
@@ -50,27 +50,27 @@ function getImg(nombre) {
   switch (nombre) {
     case "Thunderstorm":
       resultado =
-        "<img src='http://openweathermap.org/img/wn/11d@2x.png' class='img-fluid' alt='Thunderstorm'>";
+        "<img src='https://openweathermap.org/img/wn/11d@2x.png' class='img-fluid' alt='Thunderstorm'>";
       break;
     case "Drizzle":
       resultado =
-        "<img src='http://openweathermap.org/img/wn/09d@2x.png' alt='Drizzle'>";
+        "<img src='https://openweathermap.org/img/wn/09d@2x.png' alt='Drizzle'>";
       break;
     case "Rain":
       resultado =
-        "<img src='http://openweathermap.org/img/wn/10d@2x.png' alt='Rain'>";
+        "<img src='https://openweathermap.org/img/wn/10d@2x.png' alt='Rain'>";
       break;
     case "Snow":
       resultado =
-        "<img src='http://openweathermap.org/img/wn/13d@2x.png' alt='Snow'>";
+        "<img src='https://openweathermap.org/img/wn/13d@2x.png' alt='Snow'>";
       break;
     case "Clear":
       resultado =
-        "<img src='http://openweathermap.org/img/wn/01d@2x.png' alt='Clear'>";
+        "<img src='https://openweathermap.org/img/wn/01d@2x.png' alt='Clear'>";
       break;
     case "Clouds":
       resultado =
-        "<img src='http://openweathermap.org/img/wn/04d@2x.png' alt='Clouds'>";
+        "<img src='https://openweathermap.org/img/wn/04d@2x.png' alt='Clouds'>";
       break;
 
     default:
@@ -78,6 +78,40 @@ function getImg(nombre) {
       break;
   }
   return resultado;
+}
+function geoLocationGet() {
+  navigator.geolocation.getCurrentPosition(getLocationSuccess, onError);
+}
+function getLocationSuccess(position) {
+  var url =
+    "https://api.openweathermap.org/data/2.5/weather?lat=" +
+    position.coords.latitude +
+    "&lon=" +
+    position.coords.longitude +
+    "&appid=cb5bc5de9d0c7381673d98645fd1a28f";
+  $.ajax({
+    url: url,
+    type: "GET",
+  }).done(function (resultado) {
+    var result = "";
+    var tiempo = resultado.weather[0];
+    result +=
+      "<div class='card'><div class='row g-0'><div class='col-5 col-sm-4'>";
+    result += getImg(tiempo.main);
+    result +=
+      "</div><div class='col-7 col-sm-8'><div class='card-body'><h1 class='card-title'>" +
+      tiempo.main +
+      "</h1></div></div></div>";
+    $("#resultLocation").html(result);
+  });
+}
+function onError(error) {
+  result =
+    "Error en la localizacion. <br/> Error Code: " +
+    error.code +
+    "<br/> Error Mensaje: " +
+    error.message;
+  $("#resultLocation").html(result);
 }
 $(function () {
   $("#dia1").on("click", function () {
